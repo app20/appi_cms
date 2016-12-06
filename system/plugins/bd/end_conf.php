@@ -1,0 +1,4 @@
+<?
+$db->close();
+unset($db);
+?>
