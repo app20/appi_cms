@@ -1,0 +1,69 @@
+<div id="mob_sidebar_overlay" class="mob_sidebar_overlay wp_onlymob"></div>
+<div id="mob_sidebar_menu" class="mob_sidebar_menu wp_onlymob"><?include(HOME_DIR."/template/main/topmenu.html")?></div>
+<div id="mob_sidebar_login" class="mob_sidebar_login wp_onlymob">
+	<?
+	if ($this->cms->users->UID > 0)
+		{
+		?>
+		<span style="font-size: 12px;"><?=$this->cms->users->email?></span>&nbsp&nbsp<a href="/" class="login_btn"><span class="glyphicon glyphicon-user"></span> Личный кабинет</a>&nbsp&nbsp<a href="javascript:void(0);" onclick="logout();">выход</a>
+		<?
+		}
+	else
+		{
+		?>
+		<a href="javascript:void(0);" class="login_btn" onclick="loginform();"><span class="glyphicon glyphicon-user"></span>&nbsp&nbspВойти | Регистрация</a>
+		<?
+		}?>
+</div>
+
+<div id="dark" class="dark"></div>
+<div id="flyframe"><div class="flyframe_title"></div><div class="flyframe_content"></div></div>
+
+
+<div class="wp">
+<div class="wp_header">
+	<div class="wp_head_full">
+		<div class="wrap">
+			<div class="logo_div">
+				<a href="/">
+					<img src="/img/logo.png" alt="Хочу Еду">
+				</a>
+				<div class="logo_sub_div">Ваш путеводитель<br />по миру вкусной еды</div>
+			</div>
+			
+			<div class="search_div">
+				<div class="search_head"><input class="search_inp" type="text" value="" placeholder="Поиск..."><button class="search_inpbtn">Поиск</button></div>
+			</div>
+			
+			<div class="login_div">
+				<?
+				if ($this->cms->users->UID > 0)
+					{
+					?>
+					<span style="font-size: 12px;"><?=$this->cms->users->email?></span>&nbsp&nbsp<a href="/" class="login_btn"><span class="glyphicon glyphicon-user"></span> Личный кабинет</a>&nbsp&nbsp<a href="javascript:void(0);" onclick="logout();">выход</a>
+					<?
+					}
+				else
+					{
+					?>
+					<a href="javascript:void(0);" class="login_btn" onclick="loginform();"><span class="glyphicon glyphicon-user"></span>&nbsp&nbspВойти | Регистрация</a>
+					<?
+					}?>
+			</div>
+			
+			<div class="topmenu_div">
+				<?include(HOME_DIR."/template/main/topmenu.html")?>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="wp_head_mob">
+		<div class="mmenu_div"><span class="glyphicon glyphicon-align-justify"></span></div>
+		<div class="logo_div"><a href="/"><img src="/img/logo_mob.png" alt="Хочу Еду"></a></div>
+		<div class="login_div"><span class="glyphicon glyphicon-user"></span></div>
+	</div>
+	
+	
+</div>
+

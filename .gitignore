@@ -1,2 +1,12 @@
 ./cgi-bin
 ./cgi-bin/*
+./cgi-bin/*
+./template/*
+./admin/template/*
+./pictures/*
+./admin/uploads/*
+./files/*
+./admin/js/main.js
+./js/main.js
+./css/style.css
+./admin/css/style.css

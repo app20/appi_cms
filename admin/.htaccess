@@ -1,0 +1,15 @@
+Options -Indexes
+php_flag display_errors on
+
+
+RewriteEngine On
+RewriteBase /admin2
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]  
+AddDefaultCharset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml

@@ -1,0 +1,9 @@
+<div class="loginform">
+<form id="loginform">
+<div class="error_info" id="loginform_error_div"></div>
+<input type="text" style="width: 300px;" value="" name="useremail" onkeypress="if(event.keyCode==13) {login();}" placeholder="email"><br />
+<input type="password" style="width: 300px; margin-bottom: 15px;" value="" onkeypress="if(event.keyCode==13) {login();}" name="userpass" placeholder="пароль"><br />
+<div id="recaptcha" class="recaptcha" align="center"></div>
+<input type="button" class="btn" value="ВХОД"  style="margin-top: 15px;" onclick="login();">
+</form>
+</div> 
