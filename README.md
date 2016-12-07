@@ -3,6 +3,8 @@
 from console:
 run.php xxxxx
 
+dont forget to rename config.php
+
 install
 to install stystem and create tables in db
 
