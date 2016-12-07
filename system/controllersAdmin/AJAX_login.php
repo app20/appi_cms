@@ -34,7 +34,7 @@ class ajax_login_cont
 				curl_setopt($ch, CURLOPT_REFERER, "http://gos-poshlina.ru/");
 				curl_setopt( $ch, CURLOPT_ENCODING, "UTF-8" );
 				curl_setopt ($ch, CURLOPT_POST, true);
-				curl_setopt ($ch, CURLOPT_POSTFIELDS, "secret=6LfAsCkTAAAAAKsJpDOyt-tsMrFrYV6Gf4bNTm9J&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+				curl_setopt ($ch, CURLOPT_POSTFIELDS, "secret=".reCAPTCHA_server."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 				$checkcaptcha = curl_exec($ch);
 				curl_close($ch);
 				$ccheck = json_decode($checkcaptcha,true);

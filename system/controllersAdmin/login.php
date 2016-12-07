@@ -17,10 +17,10 @@ class admin_login_cont
 	public function out()
 		{
 		$pagetitle = 'Панель администратора';
-		$current_razdel="admin_logine";
-		/*include (ADMIN_DIR.'/template/main/header.html');
+		$current_razdel="admin_login";
+		include (ADMIN_DIR.'/template/main/header.html');
 		include (ADMIN_DIR.'/template/main/login.html');
-		include (ADMIN_DIR.'/template/main/footer.html');*/
+		include (ADMIN_DIR.'/template/main/footer.html');
 		}
 	/*===========================================================================================*/
 	

@@ -98,6 +98,7 @@ class users_class extends cms_class
 	/*===========================================================================================*/
 	public function new_user($email,$pass,$name)
 		{
+		$res = false;
 		$sql = "INSERT INTO `{{users}}` (`name`, `pass`, `email`, `level`, `email_true`, `ip_last`, `ip_reg`, `date_reg`, `date_last`) VALUES (
 			'".$this->db->escape($name)."',
 			'".$this->pass_hash($pass)."',
@@ -109,7 +110,9 @@ class users_class extends cms_class
 			'".time()."',
 			'".time()."'
 			);";
-		return $this->db->query($sql);
+		$this->db->query($sql);
+		$res = $this->getUID_by_email($email);
+		return $res;
 		}
 	/*===========================================================================================*/
 	public function getUID_by_email($email)
@@ -187,6 +190,13 @@ class users_class extends cms_class
 	public function change_username($UID,$newname)
 		{
 		$sql = "UPDATE `{{users}}` SET `name`='".$this->db->escape($newname)."' WHERE `id`='".$this->db->escape($UID)."';";		
+		$this->db->query($sql);
+		return true;
+		}
+	/*===========================================================================================*/	
+	public function set_level($UID,$newlevel)
+		{
+		$sql = "UPDATE `{{users}}` SET `level`='".$this->db->escape($newlevel)."' WHERE `id`='".$this->db->escape($UID)."';";		
 		$this->db->query($sql);
 		return true;
 		}

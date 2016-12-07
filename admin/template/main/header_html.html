@@ -1,0 +1,66 @@
+<body>
+<div class="nc-navbar">
+<?/*
+	<nav role="navigation" class="navbar navbar-default">
+		<div class="navbar-header">
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a href="#" class="navbar-brand"><b>ПУ</b></a>
+	  </div>
+	
+	 <div id="navbarCollapse" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Главная</a></li>
+      <li><a href="#">Статьи</a></li>
+      <li><a href="#">Новости</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Войти</a></li>
+    </ul>
+  </div>
+	
+	</nav>
+	
+	*/?>
+	<div class="nc-navbar-full">
+		<div class="nc-navbar-logo"><a href="/<?=ADMIN_DIRNAME?>"><img src="/<?=ADMIN_DIRNAME?>/img/admin_logo.png"></a></div>
+				
+		<div class="nc-navbar-menu">
+			<?include(ADMIN_DIR."/template/main/topmenu.html")?>
+		</div>
+		
+		<div class="nc-navbar-login"></div>
+	</div>
+	
+	
+	<div class="nc-navbar-mob">
+		<div class="nc-navbar-menuopen">
+			<span class="glyphicon glyphicon-align-justify"></span>
+		</div>
+		
+		<div class="nc-navbar-menu">
+			<?include(ADMIN_DIR."/template/main/topmenu.html")?>
+		</div>
+		
+		<div class="nc-navbar-login"></div>
+		
+		<div class="nc-navbar-loginopen">
+			<span class="glyphicon glyphicon-user"></span>
+		</div>
+	
+	
+		<div class="nc-navbar-logo"><a href="/<?=ADMIN_DIRNAME?>"><img src="/<?=ADMIN_DIRNAME?>/img/admin_logo.png"></a></div>
+	</div>
+</div>
+
+<div class="sitemap_left">
+<?include(ADMIN_DIR."/template/main/sitemap_left.html")?>
+
+</div>
+
+ 
+<div class="cont">

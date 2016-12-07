@@ -55,22 +55,8 @@ $(function (){$("#dark").bind("click",function (){hide_flyframe();});});
 var widgetRecaptcha1;
 function onloadCallback()
 	{    
-	widgetRecaptcha1 = grecaptcha.render('recaptcha', {'sitekey' : '6LfgmgwUAAAAAA2eVjMpvW214Z5fIQdBlIMe-PTw'});
+	widgetRecaptcha1 = grecaptcha.render('recaptcha', {'sitekey' : recaptcha_key});
     }
-function registerform()
-	{
-	$.ajax({
-		type: "POST",
-		url: "/ajax/register",
-		data: {act: "getform"},
-		cache: false,		
-		success: function(html)
-			{
-			show_flyframe("Register on TopBoost",html);
-			widgetRecaptcha1 = grecaptcha.render('recaptcha', {'sitekey' : '6LfgmgwUAAAAAA2eVjMpvW214Z5fIQdBlIMe-PTw'});
-			}
-		 }); 
-	}
 $(function (){
 	$(".loginform").center();
 	})
