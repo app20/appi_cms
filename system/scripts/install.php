@@ -86,7 +86,7 @@ class script_install_cont
 			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 		$this->db->query($sql);
 		//table migration add line
-		$sql = "INSERT INTO `migration` (`id`, `tek_version`, `date`) VALUES ('1', '".CMS_VERSION."', '0');";
+		$sql = "INSERT INTO `{{migration}}` (`id`, `tek_version`, `date`) VALUES ('1', '".CMS_VERSION."', '0');";
 		$this->db->query($sql);
 		}
 	/*===========================================================================================*/
