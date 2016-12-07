@@ -42,7 +42,32 @@ class script_migrate_cont
 			{
 			$time = time();
 			$filename = ($this->cms->argv[3]).".".$time.".php"
-			
+$text = 
+"
+<?
+class migrate_".$time."
+	{
+	public \$db;
+	/*===========================================================================================*/
+	public function __construct(\$db_in)
+    	{				
+		\$this->db = & \$db_in;
+		}
+	/*===========================================================================================*/
+	public function __destruct()
+    	{	
+		}	
+	/*===========================================================================================*/
+	public function run()
+		{
+		//table 
+		$sql = \"\";
+		//$this->db->query($sql);		
+		}
+	/*===========================================================================================*/
+	}
+?>
+";
 			file_put_contents((HOME_DIR."/system/migration/".$filename),$text);
 			echo $filename." success created\n\r";
 			}
