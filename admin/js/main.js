@@ -19,11 +19,14 @@ function showsubmenu(el)
 	
 	if (!$(ul).hasClass('showen'))
 		{
+		$(".sitemap_left").css({"z-index":"-1"});
 		$(".nc-navbar .submenu").removeClass("showen");
 		$(ul).addClass('showen');
+		
 		}
 	else 
 		{
+		$(".sitemap_left").css({"z-index":"2"});
 		$(".nc-navbar .submenu").removeClass("showen");
 		}
 	

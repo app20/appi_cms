@@ -49,6 +49,17 @@ class info_class extends cms_class
 		return $res;
 		}
 	/*===========================================================================================*/
+	public function getInfoById($id)
+		{
+		$res = false;
+		$sql = "SELECT `id`, `name`, `aliace`, `pagetitle`, `description`, `keywords`, `text`, `user`, `date` FROM `{{info_pages}}` WHERE `id`='".$this->db->escape($id)."';";
+		$getinfo_q  = $this->db->query($sql);
+		if ($getinfo_f = $this->db->fetch_assoc($getinfo_q))
+			{
+			$res = $getinfo_f;
+			}
+		return $res;
+		}
 	/*===========================================================================================*/
 	/*===========================================================================================*/
 	/*===========================================================================================*/	

@@ -1,0 +1,34 @@
+<script src="/<?=ADMIN_DIRNAME?>/js/ckeditor/ckeditor.js"></script>
+<script>
+$(function ()
+	{
+	CKEDITOR.replace( 'ttext', 
+		{
+		filebrowserBrowseUrl : '/browse.php',
+		filebrowserUploadUrl : '/upload.php'
+		} );
+	
+	});
+</script>
+<div class="frame">
+<h3><?=$h1title?></h3>
+
+<form id="editinfo_form" method="post">
+<input type="hidden" name="id" value="">
+<label class="lab">Название</label>
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="Название" name="name"><br />
+<label class="lab">Алиас</label>
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="Алиас" name="aliace"><br />
+<label class="lab">Заголовок</label>
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="Заголовок" name="aliace"><br />
+<label class="lab">description</label>
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="description" name="description"><br />
+<label class="lab">keywords</label>
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="keywords" name="keywords"><br />
+<label class="lab">Контент</label>
+<textarea class="adm_input" name="ttext" id="ttext"></textarea><br />
+<div class="error_info" id="adduser_error_div"></div>
+<input type="button" class="btn btn-success" value="Сохранить" onclick="saveinfochanges();">
+</form>
+
+</div>

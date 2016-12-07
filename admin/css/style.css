@@ -286,18 +286,35 @@ body
 	
 	}
 	
-/*================================================*/	
+/*================================================*/
 .sitemap_left
 	{
 	position: fixed;
 	top: 55px;
 	left: 0px;
 	width: 300px;
-	min-height: 400px;
+	min-height: 50px;
+	height: auto;
 	border-right: 1px solid #1a87c2;
 	border-bottom: 1px solid #1a87c2;
 	padding: 20px;
-	z-index: -1;
+	z-index: 2;
+	}
+	
+.sitemap_left .zag
+	{
+	font-size: 20px;
+	font-weight: bold;
+	}
+	
+.sitemap_left .maplist
+	{
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin: 10px 0px;
+	min-height: 50px;
+	max-height: 650px;
+	height: auto;
 	}
 	
 @media screen and (max-width: 980px)
@@ -479,4 +496,21 @@ input[type="text"],input[type="password"]
   }
 }
 
+/*================================================*/
+.adm_input
+	{
+	min-width: 700px!important;
+	}
+	
+.lab
+	{
+	display: block;
+	font-style: Tahoma;
+	padding: 5px 0px 0px 6px;
+    margin-bottom: 0px;
+	}
+/*===========================================*/
+/*================================================*/
+/*================================================*/
+/*================================================*/
 /*================================================*/
