@@ -1,10 +1,10 @@
 <?php
 /*
 app_cms by app20
-v 0.91
-min PHP version 5.60
+v 0.92
+min PHP version 5.6
 */
-define("CMS_VERSION","0.91");
+define("CMS_VERSION","0.92");
 
 //подключаем плагины
 include_once (HOME_DIR.'/system/plugins/bd/bd.class.mysqli.php');
@@ -210,11 +210,15 @@ class cms_class
 	/*===========================================================================================*/
 	public function script()
 		{
-		if (file_exists(HOME_DIR."/system/scripts/".$this->argv[1].".php")) //если есть такой файл в скриптах, то запускаем
+		$filen = (HOME_DIR."/system/scripts/".$this->argv[1].".php");
+		//echo ($filen)."\n\r";
+		if (file_exists($filen)) //если есть такой файл в скриптах, то запускаем
 			{
-			include_once (HOME_DIR."/system/scripts/".$this->argv[1].".php");
+			require_once ($filen);
 			$scripts_name = "script_".$this->argv[1]."_cont";
+			//echo $scripts_name;
 			$scripts_class = new $scripts_name($this->db, $this);
+			//echo 1;
 			$scripts_class->run();
 			}
 		}

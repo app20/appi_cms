@@ -4,7 +4,7 @@ from console:
 run.php xxxxx
 
 install
-to install stystem and craete tables in db
+to install stystem and create tables in db
 
 
 migrate new
