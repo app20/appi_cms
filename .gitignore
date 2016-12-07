@@ -8,5 +8,6 @@ Resources/admin/uploads/*
 Resources/files/*
 Resources/admin/js/main.js
 Resources/js/main.js
+/js/main.js
 Resources/css/style.css
 Resources/admin/css/style.css
