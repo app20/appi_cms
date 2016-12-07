@@ -4,7 +4,7 @@ app_cms by app20
 v 0.92.10
 min PHP version 5.6
 */
-define("CMS_VERSION","0.92.10");
+define("CMS_VERSION","0.92.11");
 
 //подключаем плагины
 include_once (HOME_DIR.'/system/plugins/bd/bd.class.mysqli.php');
