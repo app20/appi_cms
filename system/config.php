@@ -9,6 +9,8 @@ define("DB_USERNAME","");
 define("DB_PASSWORD","");
 define("DB_DATABASE","");
 define("DB_PREFIX","");
+define("reCAPTCHA_client","");
+define("reCAPTCHA_server","");
 
 define('TEST_MODE', false);
 ?>

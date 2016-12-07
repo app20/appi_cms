@@ -3,7 +3,7 @@ php_flag display_errors on
 
 
 RewriteEngine On
-RewriteBase /admin2
+RewriteBase /admin
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
