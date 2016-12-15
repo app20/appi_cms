@@ -30,7 +30,7 @@ class admin_info_cont
 					"pagetitle"		=> "",
 					"description"	=> "",
 					"keywords" 		=> "",
-					"aliace"		=> "",
+					"vis"			=> "1",
 					"text"			=> "" 
 					);
 			include (ADMIN_DIR.'/template/info/edit.html');

@@ -1,34 +1,68 @@
 <script src="/<?=ADMIN_DIRNAME?>/js/ckeditor/ckeditor.js"></script>
 <script>
+var editor;
 $(function ()
 	{
-	CKEDITOR.replace( 'ttext', 
+	 editor = CKEDITOR.replace( 'ttext', 
 		{
 		filebrowserBrowseUrl : '/browse.php',
 		filebrowserUploadUrl : '/upload.php'
 		} );
 	
 	});
+	
+function saveinfo()
+	{
+	$("#text1").text(editor.getData());
+	$.ajax({
+		type: "POST",
+		url: '/'+admindir+"/ajax/info",
+		data: "act=save&"+$("#editinfo_form").serialize(),
+		dataType: 'json',
+		cache: false,		
+		success: function(res)
+			{
+			if (res.ok == "yes")
+				{
+				//location.href='/'+admindir+"/info/list";
+				}
+			else
+				{
+				$(".error_info").html(res.error).fadeIn(200);
+				}
+			}
+		 }); 
+	}
 </script>
 <div class="frame">
 <h3><?=$h1title?></h3>
 
-<form id="editinfo_form" method="post">
-<input type="hidden" name="id" value="">
+<form id="editinfo_form">
+<input type="hidden" name="id" value="<?=$inf['id']?>">
 <label class="lab">Название</label>
-<input style="width: 1000px;" class="adm_input" type="text" placeholder="Название" name="name"><br />
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="Название" name="name" value="<?=$inf['name']?>"><br />
 <label class="lab">Алиас</label>
-<input style="width: 1000px;" class="adm_input" type="text" placeholder="Алиас" name="aliace"><br />
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="Алиас" name="aliace" value="<?=$inf['aliace']?>"><br />
+<label class="lab">Доступность страницы</label>
+<select style="width: 1000px;" class="adm_input" type="text" name="vis">
+	<option value="1" <?if ($inf['vis']=='1'){echo "selected";}?>>Доступна</option>
+	<option value="0" <?if ($inf['vis']=='0'){echo "selected";}?>>Скрыта</option>
+</select><br />
 <label class="lab">Заголовок</label>
-<input style="width: 1000px;" class="adm_input" type="text" placeholder="Заголовок" name="aliace"><br />
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="Заголовок" name="pagetitle" value="<?=$inf['pagetitle']?>"><br />
 <label class="lab">description</label>
-<input style="width: 1000px;" class="adm_input" type="text" placeholder="description" name="description"><br />
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="description" name="description" value="<?=$inf['description']?>"><br />
 <label class="lab">keywords</label>
-<input style="width: 1000px;" class="adm_input" type="text" placeholder="keywords" name="keywords"><br />
+<input style="width: 1000px;" class="adm_input" type="text" placeholder="keywords" name="keywords" value="<?=$inf['keywords']?>"><br />
 <label class="lab">Контент</label>
-<textarea class="adm_input" name="ttext" id="ttext"></textarea><br />
-<div class="error_info" id="adduser_error_div"></div>
-<input type="button" class="btn btn-success" value="Сохранить" onclick="saveinfochanges();">
+<textarea class="adm_input" name="ttext" id="ttext"><?=$inf['text']?></textarea><br />
+<textarea name="text" id="text1" style="display: none;"></textarea>
+<div class="error_info" id=""></div>
+<input type="button" class="btn btn-success" value="Сохранить" onclick="saveinfo()">
 </form>
 
+
+<div style="float: right;"><a href="javascript:void(0);" onclick="">Показать историю</a></div>
+<div class="clr"></div>
+<div id=" adminlog_div"></div>
 </div>

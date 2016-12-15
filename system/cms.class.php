@@ -1,10 +1,10 @@
 <?php
 /*
 app_cms by app20
-v 0.92.10
+v 0.92.18
 min PHP version 5.6
 */
-define("CMS_VERSION","0.92.17");
+define("CMS_VERSION","0.92.18");
 
 //подключаем плагины
 include_once (HOME_DIR.'/system/plugins/bd/bd.class.mysqli.php');
@@ -36,7 +36,8 @@ class cms_class
 	public $sessions;
 	public $users;
 	public $email;
-	public $info;	
+	public $info;
+	public $adminlog;
 	public $m; //modules
 	public $argv; //arguments
 	public $timebelt=5; //time belt
@@ -55,6 +56,7 @@ class cms_class
 		$this->users = new users_class($this->db, $this);
 		$this->email = new email_class($this->db, $this);		
 		$this->info = new info_class($this->db, $this);
+		$this->adminlog = new adminlog_class($this->db, $this);
 		//создаем хэндлы доп модулей
 		$this->m = array();
 		$f = scandir(HOME_DIR."/system/modules_extra");

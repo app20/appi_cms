@@ -62,6 +62,7 @@ class script_install_cont
 			  `description` varchar(255) NOT NULL,
 			  `keywords` varchar(255) NOT NULL,
 			  `text` text NOT NULL,
+			  `vis` varchar(1) NOT NULL,
 			  `user` int(11) NOT NULL,
 			  `date` varchar(11) NOT NULL,
 			  `date_mysql` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -71,6 +72,7 @@ class script_install_cont
 			  KEY `pagetitle` (`pagetitle`),
 			  KEY `description` (`description`),
 			  KEY `keywords` (`keywords`),
+			  KEY `vis` (`vis`),
 			  KEY `user` (`user`),
 			  KEY `date` (`date`)
 			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
@@ -89,6 +91,30 @@ class script_install_cont
 		$this->db->query($sql);
 		$userid = $this->cms->users->new_user("admin","admin","admin");
 		$this->cms->users->set_level($userid,100);
+		//table adminlog
+		$sql = "CREATE TABLE IF NOT EXISTS `{{adminlog}}` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `guid` int(11) NOT NULL COMMENT 'id in type',
+				  `type` int(11) NOT NULL COMMENT 'type in table adminlog_types',
+				  `UID` int(11) NOT NULL,
+				  `description` text NOT NULL,
+				  `ip` varchar(25) NOT NULL,
+				  `date` varchar(11) NOT NULL,
+				  `date_mysql` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+				  PRIMARY KEY (`id`),
+				  KEY `guid` (`guid`),
+				  KEY `type` (`type`),
+				  KEY `UID` (`UID`),
+				  KEY `ip` (`ip`),
+				  KEY `date` (`date`)
+				) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+		$this->db->query($sql);
+		//table adminlog_types
+		$sql = "CREATE TABLE `{{adminlog_types}}` ( `id` INT NOT NULL AUTO_INCREMENT , `code` VARCHAR(20) NOT NULL , `name` TEXT NOT NULL , `date_mysql` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`), UNIQUE (`code`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;"
+		$this->db->query($sql);
+		$sql = "INSERT INTO `{{adminlog_types}}` (`id`, `code`, `name`, `date_mysql`) VALUES ('1', 'info', 'Страницы сайта', CURRENT_TIMESTAMP), ('2', 'users', 'Пользователи', CURRENT_TIMESTAMP)";
+		$this->db->query($sql);
+		
 		echo "install complete\n\r";
 		}
 	/*===========================================================================================*/

@@ -61,6 +61,29 @@ class info_class extends cms_class
 		return $res;
 		}
 	/*===========================================================================================*/
+	public function new_info($args)
+		{
+		$res = false;
+		$sql = "INSERT INTO {{info_pages}} (`name`, `aliace`, `pagetitle`, `description`, `keywords`, `text`, `vis`, `user`, `date`) VALUES 
+			(
+			'".$this->db->escape($args['name'])."',
+			'".$this->db->escape($args['aliace'])."',
+			'".$this->db->escape($args['pagetitle'])."',
+			'".$this->db->escape($args['description'])."',
+			'".$this->db->escape($args['keywords'])."',
+			'".$this->db->escape($args['text'])."',
+			'".$this->db->escape($args['vis'])."',
+			'".$this->cms->users->UID."',
+			'".time()."'
+			);";
+		$this->db->query($sql);
+		if ($info = $this->getInfoByAliace($args['aliace']))
+			{
+			$res = $info['id'];
+			$this->cms->adminlog->new_log("info",$res,"Создана новая страница");
+			}
+		return $res;
+		}
 	/*===========================================================================================*/
 	/*===========================================================================================*/	
 	}
